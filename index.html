@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Le Quizz</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+
+  <!-- ================= ACCUEIL ================= -->
+  <section id="screen-home" class="screen active">
+    <p class="brand-eyebrow">Soirée Quizz</p>
+    <h1 class="brand-title">Le Quizz</h1>
+    <div class="round-cards">
+      <button class="round-card" data-go="round1">
+        <div class="num">01</div>
+        <h2>Questions</h2>
+        <p>QCM et +/− à la suite, avec chrono.</p>
+      </button>
+      <button class="round-card" data-go="round2">
+        <div class="num">02</div>
+        <h2>Catégories</h2>
+        <p>8 thèmes à cocher au fil de l'oral.</p>
+      </button>
+      <button class="round-card" data-go="round3">
+        <div class="num">03</div>
+        <h2>Personnalités</h2>
+        <p>Reveal à la demande, 1 à 3 points.</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= MANCHE 1 : QUESTIONS ================= -->
+  <section id="screen-round1" class="screen">
+    <div class="hud">
+      <div class="hud-left">
+        <button class="icon-btn" data-go="home" title="Accueil">⌂</button>
+        <button class="icon-btn" id="r1-reset" title="Recommencer la manche">↺</button>
+      </div>
+      <span class="round-tag">Manche 1 — Questions</span>
+      <div class="hud-right">
+        <span class="qcounter" id="r1-counter">1 / 8</span>
+        <button class="icon-btn" id="fullscreen-btn" title="Plein écran">⛶</button>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="question-card">
+        <p class="eyebrow" id="r1-type-label">QCM</p>
+        <h2 id="r1-question-text"></h2>
+      </div>
+      <div id="r1-answers" class="answers-grid"></div>
+      <div class="timer-ring hidden" id="r1-timer">
+        <svg viewBox="0 0 120 120">
+          <circle class="track" cx="60" cy="60" r="52"></circle>
+          <circle class="progress" id="r1-timer-circle" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <span class="value" id="r1-timer-value">20</span>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="ghost-btn" id="r1-prev">◀ Question précédente</button>
+      <button class="primary-btn" id="r1-action">Afficher la réponse A</button>
+      <button class="ghost-btn hidden" id="r1-skip-timer">Passer le chrono</button>
+    </div>
+    <p class="hint">Espace / Entrée / → : action suivante · ← : question précédente · Échap : accueil</p>
+  </section>
+
+  <!-- ================= MANCHE 2 : CATÉGORIES ================= -->
+  <section id="screen-round2" class="screen">
+    <div class="hud">
+      <div class="hud-left">
+        <button class="icon-btn" data-go="home" title="Accueil">⌂</button>
+        <button class="icon-btn" id="r2-reset" title="Réinitialiser">↺</button>
+      </div>
+      <span class="round-tag">Manche 2 — Catégories</span>
+      <div class="hud-right">
+        <button class="icon-btn" id="fullscreen-btn-2" title="Plein écran">⛶</button>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="category-grid" id="r2-grid"></div>
+    </div>
+    <p class="hint">Clique sur une catégorie une fois qu'elle a été traitée à l'oral.</p>
+  </section>
+
+  <!-- ================= MANCHE 3 : PERSONNALITÉS ================= -->
+  <section id="screen-round3" class="screen">
+    <div class="hud">
+      <div class="hud-left">
+        <button class="icon-btn" data-go="home" title="Accueil">⌂</button>
+        <button class="icon-btn" id="r3-reset" title="Réinitialiser">↺</button>
+      </div>
+      <span class="round-tag">Manche 3 — Personnalités</span>
+      <div class="hud-right">
+        <button class="icon-btn" id="fullscreen-btn-3" title="Plein écran">⛶</button>
+      </div>
+    </div>
+
+    <div class="stage" id="r3-stage">
+      <div class="personality-grid" id="r3-grid"></div>
+    </div>
+    <div class="controls hidden" id="r3-controls">
+      <button class="ghost-btn" id="r3-cancel">◀ Annuler (sans marquer)</button>
+      <button class="primary-btn" id="r3-action">Révéler</button>
+    </div>
+    <p class="hint" id="r3-hint">Clique sur une personnalité pour l'ouvrir.</p>
+  </section>
+
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
