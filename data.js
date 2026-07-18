@@ -154,18 +154,18 @@ const QUIZ_DATA = {
   },
 
   /* ---------- MANCHE 3 : Personnalités (1-2-3 points) ---------- */
-  round3: {
+ round3: {
+    timerSeconds: 15, // chrono qui se lance automatiquement après l'apparition de la question
     personalities: [
-      { name: "Zinédine Zidane", points: 1, image: null },
-      { name: "Édith Piaf", points: 1, image: null },
-      { name: "Omar Sy", points: 1, image: null },
-      { name: "Marion Cotillard", points: 2, image: null },
-      { name: "Alain Prost", points: 2, image: null },
-      { name: "Simone de Beauvoir", points: 2, image: null },
-      { name: "Antoine Lavoisier", points: 3, image: null },
-      { name: "Colette", points: 3, image: null }
+      { name: "Zinédine Zidane", points: 1, image: null, question: "Il inscrit un doublé de la tête en finale de la Coupe du Monde 1998." },
+      { name: "Édith Piaf", points: 1, image: null, question: "Surnommée « la Môme », elle a chanté 'Non, je ne regrette rien'." },
+      { name: "Omar Sy", points: 1, image: null, question: "Révélé par 'Intouchables', il a reçu un César du meilleur acteur en 2012." },
+      { name: "Marion Cotillard", points: 2, image: null, question: "Oscarisée en 2008 pour son rôle d'Édith Piaf dans 'La Môme'." },
+      { name: "Alain Prost", points: 2, image: null, question: "Surnommé « le Professeur », quadruple champion du monde de Formule 1." },
+      { name: "Simone de Beauvoir", points: 2, image: null, question: "Autrice du 'Deuxième Sexe', figure majeure du féminisme français." },
+      { name: "Antoine Lavoisier", points: 3, image: null, question: "Père de la chimie moderne, il énonce la loi de conservation de la masse." },
+      { name: "Colette", points: 3, image: null, question: "Autrice de 'Gigi' et du cycle des 'Claudine', première femme aux Goncourt en présidente du jury." }
       // Pour ajouter une vraie photo : "image": "images/nom-fichier.jpg"
-      // (place le fichier dans le dossier images/ à côté d'index.html)
     ]
   }
 
