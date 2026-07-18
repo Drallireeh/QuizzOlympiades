@@ -18,10 +18,9 @@ const QUIZ_DATA = {
       },
       {
         question: "Quelle est la capitale de l'Australie ?",
-        type: "qcm", // "qcm" (4 réponses A-D) ou "plusminus" (+/-)
+        type: "qcm",
         answers: ["Sydney", "Melbourne", "Canberra", "Perth"],
         correctIndex: 2
-        // timer: 15, // (optionnel) surcharge la durée par défaut pour cette question
       },
       {
         question: "Qui a peint 'La Nuit étoilée' ?",
@@ -56,8 +55,8 @@ const QUIZ_DATA = {
       {
         question: "En quelle année a eu lieu la première 24 Heures du Mans ?",
         type: "qcm",
-        answers: ["1913", "1923", "1931", "1947"],
-        correctIndex: 1
+        answers: ["1913", "1919", "1923", "1929"],
+        correctIndex: 2
       },
       {
         question: "Le Roi Lion (1994) a-t-il rapporté plus ou moins d'argent que La Reine des Neiges ?",
@@ -90,7 +89,7 @@ const QUIZ_DATA = {
         correctIndex: 1
       },
       {
-        question: "Quelle lettre n'apparaît dans aucun symbole du tableau périodique ?",
+        question: "Quelle lettre n'apparaît dans aucun symbole du tableau périodique des éléments ?",
         type: "qcm",
         answers: ["J", "Q", "W", "X"],
         correctIndex: 0
@@ -102,10 +101,10 @@ const QUIZ_DATA = {
         correctIndex: 1
       },
       {
-        question: "Elton John a-t-il vendu plus ou moins d'albums que Madonna ?",
+        question: "Eminem a-t-il vendu plus ou moins d'albums que Rihanna ?",
         type: "plusminus",
         answers: ["+", "-"],
-        correctIndex: 0
+        correctIndex: 1
       },
       {
         question: "Quel est le plus grand désert du monde ?",
@@ -126,12 +125,17 @@ const QUIZ_DATA = {
         correctIndex: 3
       },
       {
-        question: "Lequel de ces nombres est un nombre premier ?",
+        question: "Quelle est la plus ancienne université encore en activité ?",
          type: "qcm",
-        answers: ["221", "341", "391", "397"],
+        answers: ["Oxford", "Al Quaraouiyine", "Bologne", "Sorbonne"],
         correctIndex: 1
       },
-      
+      {
+        question: "Combien de cheminées possédait le titanic ?",
+         type: "qcm",
+        answers: ["3", "4", "5", "6"],
+        correctIndex: 1
+      },
     ]
   },
 
@@ -144,7 +148,7 @@ const QUIZ_DATA = {
       "Géographie",
       "Sport",
       "Sciences",
-      "Télévision",
+      "Gastronomie",
       "Jeux vidéo"
     ]
   },
