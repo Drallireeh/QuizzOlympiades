@@ -7,7 +7,7 @@ const QUIZ_DATA = {
 
   /* ---------- MANCHE 1 : Questions (QCM ou +/-) ---------- */
   round1: {
-    timerSeconds: 12, // durée par défaut du chrono (en secondes)
+    timerSeconds: 13, // durée par défaut du chrono (en secondes)
     questions: [
       {
         question: "Quel est le plus grand os du corps humain  ?",
@@ -166,6 +166,7 @@ const QUIZ_DATA = {
       { name: "Antoine Lavoisier", points: 3, image: null, question: "Père de la chimie moderne, il énonce la loi de conservation de la masse." },
       { name: "Colette", points: 3, image: null, question: "Autrice de 'Gigi' et du cycle des 'Claudine', première femme aux Goncourt en présidente du jury." }
       // Pour ajouter une vraie photo : "image": "images/nom-fichier.jpg"
+      // (place le fichier dans le dossier images/ à côté d'index.html)
     ]
   }
 

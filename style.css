@@ -537,8 +537,6 @@ button:focus-visible {
   font-size: clamp(48px, 6vw, 72px);
   color: #101018;
   background: linear-gradient(135deg, var(--teal), var(--gold));
-  filter: blur(22px) grayscale(0.4);
-  transition: filter 0.5s ease;
 }
 .reveal-avatar img {
   width: 100%;
@@ -546,17 +544,26 @@ button:focus-visible {
   object-fit: cover;
   border-radius: 50%;
 }
-.reveal-avatar.revealed { filter: blur(0) grayscale(0); }
+
+.reveal-question {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(18px, 1.8vw, 25px);
+  color: var(--text-muted);
+  max-width: 720px;
+  line-height: 1.5;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.reveal-question.shown { opacity: 1; }
 
 .reveal-name {
   font-family: var(--font-display);
   text-transform: uppercase;
   font-size: clamp(28px, 3.2vw, 42px);
   min-height: 1.2em;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
+.reveal-name.shown { opacity: 1; }
 .reveal-name.hidden-text { color: transparent; user-select: none; }
-.reveal-name.hidden-text::after {
-  content: "? ? ?";
-  color: var(--text-muted);
-  letter-spacing: 0.3em;
-}
