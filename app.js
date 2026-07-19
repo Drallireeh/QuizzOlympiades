@@ -447,3 +447,180 @@ function initR3() {
   r3StageDefaultHTML = document.getElementById("r3-stage").innerHTML;
   renderR3Grid();
 }
+
+function clearR3Timers() {
+  clearTimeout(r3Timeout1);
+  clearTimeout(r3Timeout2);
+  clearInterval(r3TimerInterval);
+}
+
+function renderR3Grid() {
+  clearR3Timers();
+  const stage = document.getElementById("r3-stage");
+  stage.innerHTML = r3StageDefaultHTML;
+  const grid = document.getElementById("r3-grid");
+  grid.innerHTML = "";
+  QUIZ_DATA.round3.personalities.forEach((p, i) => {
+    const tile = document.createElement("button");
+    tile.className = "personality-tile" + (r3Done.has(i) ? " done" : "");
+    tile.innerHTML = `
+      <div class="avatar">${p.image ? `<img src="${p.image}" alt="">` : initials(p.name)}</div>
+      <span class="points-pill" data-pts="${p.points}">${p.points} pt${p.points > 1 ? "s" : ""}</span>
+    `;
+    tile.addEventListener("click", () => openR3Reveal(i));
+    grid.appendChild(tile);
+  });
+  document.getElementById("r3-controls").classList.add("hidden");
+  document.getElementById("r3-action").classList.add("hidden");
+  document.getElementById("r3-skip-timer").classList.add("hidden");
+  document.getElementById("r3-hint").textContent = "Clique sur une personnalité pour l'ouvrir.";
+}
+
+/* La photo et les points s'affichent tout de suite (plus de flou).
+   1s après : le cartouche "? ? ?" apparaît.
+   1s après ça : le chrono démarre tout seul. */
+function openR3Reveal(i) {
+  clearR3Timers();
+  r3CurrentIndex = i;
+  r3Phase = "intro";
+  const p = QUIZ_DATA.round3.personalities[i];
+  const stage = document.getElementById("r3-stage");
+  stage.innerHTML = `
+    <div class="reveal-card">
+      <span class="points-pill" data-pts="${p.points}">${p.points} pt${p.points > 1 ? "s" : ""}</span>
+      <div class="reveal-avatar" id="r3-reveal-avatar">${
+        p.image ? `<img src="${p.image}" alt="">` : initials(p.name)
+      }</div>
+      <div class="reveal-question" id="r3-reveal-question">${p.question || ""}</div>
+      <div class="reveal-name hidden-text" id="r3-reveal-name">${p.name}</div>
+      <div class="timer-ring hidden" id="r3-timer">
+        <svg viewBox="0 0 120 120">
+          <circle class="track" cx="60" cy="60" r="52"></circle>
+          <circle class="progress" id="r3-timer-circle" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <span class="value" id="r3-timer-value"></span>
+      </div>
+    </div>
+  `;
+  document.getElementById("r3-controls").classList.remove("hidden");
+  document.getElementById("r3-action").classList.add("hidden");
+  document.getElementById("r3-skip-timer").classList.add("hidden");
+  document.getElementById("r3-hint").textContent = "…";
+
+  r3Timeout1 = setTimeout(() => {
+    document.getElementById("r3-reveal-question").classList.add("shown");
+    r3Timeout2 = setTimeout(() => {
+      startR3Timer(QUIZ_DATA.round3.timerSeconds || 15);
+    }, 1000);
+  }, 1000);
+}
+
+function startR3Timer(seconds) {
+  r3Phase = "timer-running";
+  const ring = document.getElementById("r3-timer");
+  const circle = document.getElementById("r3-timer-circle");
+  const valueEl = document.getElementById("r3-timer-value");
+  const skipBtn = document.getElementById("r3-skip-timer");
+
+  ring.classList.remove("hidden", "urgent");
+  skipBtn.classList.remove("hidden");
+  document.getElementById("r3-hint").textContent = "Chrono en cours…";
+
+  circle.style.strokeDasharray = TIMER_CIRCUMFERENCE;
+  circle.style.transition = "none";
+  circle.style.strokeDashoffset = 0;
+  void circle.getBoundingClientRect();
+  circle.style.transition = `stroke-dashoffset ${seconds}s linear`;
+  circle.style.strokeDashoffset = TIMER_CIRCUMFERENCE;
+
+  let remaining = seconds;
+  valueEl.textContent = remaining;
+  r3TimerInterval = setInterval(() => {
+    remaining--;
+    valueEl.textContent = Math.max(remaining, 0);
+    if (remaining <= 5) ring.classList.add("urgent");
+    if (remaining <= 0) {
+      clearInterval(r3TimerInterval);
+      onR3TimerEnd();
+    }
+  }, 1000);
+}
+
+function onR3TimerEnd() {
+  document.getElementById("r3-skip-timer").classList.add("hidden");
+  r3Phase = "timer-done";
+  updateR3Button();
+  document.getElementById("r3-action").classList.remove("hidden");
+  document.getElementById("r3-hint").textContent = "Clique sur Révéler quand tu es prêt.";
+  playBeep();
+}
+
+function updateR3Button() {
+  const btn = document.getElementById("r3-action");
+  btn.textContent = r3Phase === "revealed" ? "Retour à la liste" : "Révéler";
+}
+
+function r3Advance() {
+  if (r3Phase === "timer-done") {
+    const nameEl = document.getElementById("r3-reveal-name");
+    nameEl.classList.remove("hidden-text");
+    nameEl.classList.add("shown");
+    r3Phase = "revealed";
+    updateR3Button();
+    document.getElementById("r3-hint").textContent = "Clique sur Retour à la liste.";
+    return;
+  }
+  if (r3Phase === "revealed") {
+    r3Done.add(r3CurrentIndex);
+    renderR3Grid();
+  }
+}
+
+document.getElementById("r3-action").addEventListener("click", r3Advance);
+document.getElementById("r3-cancel").addEventListener("click", renderR3Grid);
+document.getElementById("r3-skip-timer").addEventListener("click", () => {
+  clearInterval(r3TimerInterval);
+  const circle = document.getElementById("r3-timer-circle");
+  circle.style.transition = "none";
+  circle.style.strokeDashoffset = TIMER_CIRCUMFERENCE;
+  onR3TimerEnd();
+});
+document.getElementById("r3-reset").addEventListener("click", () => {
+  r3Done = new Set();
+  renderR3Grid();
+});
+
+/* ============================================================
+   RACCOURCIS CLAVIER
+   ============================================================ */
+document.addEventListener("keydown", (e) => {
+  const activeScreen = document.querySelector(".screen.active").id;
+
+  if (e.key === "Escape") {
+    goTo("home");
+    return;
+  }
+
+  if (["Enter", " ", "ArrowRight"].includes(e.key)) {
+    e.preventDefault();
+    if (activeScreen === "screen-round1") {
+      const btn = document.getElementById("r1-action");
+      if (!btn.disabled) btn.click();
+    } else if (activeScreen === "screen-round3") {
+      const btn = document.getElementById("r3-action");
+      if (!btn.classList.contains("hidden")) btn.click();
+    }
+    return;
+  }
+
+  if (e.key === "ArrowLeft" && activeScreen === "screen-round1") {
+    document.getElementById("r1-prev").click();
+  }
+});
+
+/* ============================================================
+   INIT
+   ============================================================ */
+initR1();
+initR2();
+initR3();
