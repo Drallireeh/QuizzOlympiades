@@ -456,6 +456,110 @@ button:focus-visible {
 }
 .category-tile.used .mark { opacity: 1; }
 .category-tile.used:hover { transform: none; }
+.category-tile .score-note {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--teal);
+  margin-top: 2px;
+}
+
+/* ---- Écran de jeu (question par question, chrono global) ---- */
+.category-play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(20px, 3vh, 40px);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.play-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.play-topbar .cat-name {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(18px, 2vw, 24px);
+  color: var(--gold);
+}
+.play-score {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.ready-card {
+  text-align: center;
+}
+.ready-card p {
+  color: var(--text-muted);
+  margin-bottom: 26px;
+}
+
+.answer-box {
+  margin-top: 22px;
+  padding: 16px 26px;
+  border-radius: 14px;
+  background: var(--panel-2);
+  border: 1px solid var(--teal);
+  display: inline-block;
+}
+.answer-box .eyebrow { color: var(--teal); margin: 0 0 6px; }
+.answer-box .answer-text {
+  font-size: clamp(20px, 2vw, 27px);
+  margin: 0;
+}
+
+.waiting-card {
+  text-align: center;
+  color: var(--text-muted);
+}
+.waiting-card p { margin-bottom: 22px; }
+
+.qa-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.qa-btn {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 16px 30px;
+  border-radius: 100px;
+  font-size: clamp(13px, 1.2vw, 15px);
+  transition: transform 0.12s ease;
+}
+.qa-btn:hover { transform: translateY(-2px); }
+.qa-btn.good { background: var(--green); color: #05210f; }
+.qa-btn.bad { background: var(--red); color: #2a0409; }
+.qa-btn.skip { background: var(--panel-2); color: var(--text); border: 1px solid var(--panel-border); }
+
+.score-card {
+  text-align: center;
+}
+.score-card .score-value {
+  font-family: var(--font-display);
+  font-size: clamp(64px, 8vw, 100px);
+  color: var(--gold);
+  line-height: 1;
+}
+.score-card .score-label {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.score-adjust {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: center;
+  margin: 18px 0 30px;
+}
 
 /* ============================================================
    ROUND 3 — PERSONNALITÉS
