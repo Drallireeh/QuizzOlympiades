@@ -391,14 +391,32 @@ const QUIZ_DATA = {
  round3: {
     timerSeconds: 15, // chrono qui se lance automatiquement après l'apparition de la question
     personalities: [
-      { name: "Zinédine Zidane", points: 1, image: null, question: "Il inscrit un doublé de la tête en finale de la Coupe du Monde 1998." },
-      { name: "Édith Piaf", points: 1, image: null, question: "Surnommée « la Môme », elle a chanté 'Non, je ne regrette rien'." },
-      { name: "Omar Sy", points: 1, image: null, question: "Révélé par 'Intouchables', il a reçu un César du meilleur acteur en 2012." },
-      { name: "Marion Cotillard", points: 2, image: null, question: "Oscarisée en 2008 pour son rôle d'Édith Piaf dans 'La Môme'." },
-      { name: "Alain Prost", points: 2, image: null, question: "Surnommé « le Professeur », quadruple champion du monde de Formule 1." },
-      { name: "Simone de Beauvoir", points: 2, image: null, question: "Autrice du 'Deuxième Sexe', figure majeure du féminisme français." },
-      { name: "Antoine Lavoisier", points: 3, image: null, question: "Père de la chimie moderne, il énonce la loi de conservation de la masse." },
-      { name: "Colette", points: 3, image: null, question: "Autrice de 'Gigi' et du cycle des 'Claudine', première femme aux Goncourt en présidente du jury." }
+      // --- 1 point (faciles) ---
+      { name: "Leonardo DiCaprio", points: 1, image: "images/dicaprio.jpg", question: "Dans quel film incarne-t-il le personnage de Jack Dawson ?", answer: "Titanic" },
+      { name: "Mimie Mathy", points: 1, image: "images/mathy.jpg", question: "Quel est le nom de son personnage dans joséphine ange-gardien ?", answer: "Joséphine Delamarre" },
+      { name: "Kylian Mbappé", points: 1, image: "images/mbappe.jpg", question: "Dans quel club français s'est-il révélé ?", answer: "AS Monaco" },
+      { name: "Louis de Funès", points: 1, image: "images/funes.jpg", question: "Quel gendarme célèbre incarnait-il ?", answer: "Cruchot" },
+      { name: "Jean Dujardin", points: 1, image: "images/dujardin.jpg", question: "Pour quel film reçoit-il l'Oscar du meilleur acteur en 2012 ?", answer: "The Artist" },
+      { name: "Antoine Griezmann", points: 1, image: "images/griezmann.jpg", question: "Quel est son surnom courant ?", answer: "Grizou" },
+      { name: "Albert Einstein", points: 1, image: "images/einstein.jpg", question: "Quel prix nobel a-t-il remporté en 1921 ?", answer: "Prix Nobel de physique" },
+ 
+      // --- 2 points (moyennes) ---
+      { name: "Mylène Farmer", points: 2, image: "images/farmer.jpg", question: "De quel pays est-elle originaire ?", answer: "Canada" },
+      { name: "Marion Cotillard", points: 2, image: "images/cotillard.jpg", question: "Pour quel rôle remporte-t-elle l'Oscar de la meilleure actrice ?", answer: "La Môme" },
+      { name: "Tony Parker", points: 2, image: "images/parker.jpg", question: "Quel meneur légendaire était son entraîneur chez les Spurs ?", answer: "Gregg Popovich" },
+      { name: "Teddy Riner", points: 2, image: "images/riner.jpg", question: "Combien de titres olympiques individuels possède-t-il ?", answer: "3" },
+      { name: "Nekfeu", points: 2, image: "images/nekfeu.jpg", question: "Dans quel groupe de rap Nekfeu a-t-il fait ses débuts ?", answer: "S-crew" },
+      { name: "Jean Reno", points: 2, image: "images/reno.jpg", question: "Quel est le prénom de la jeune fille protégée par Léon ?", answer: "Mathilda" },
+      { name: "Thomas Pesquet", points: 2, image: "images/pesquet.jpg", question: "Quel était son métier avant de devenir astronaute ?", answer: "Pilote de ligne" },
+ 
+      // --- 3 points (difficiles) ---
+      { name: "Omar Sy", points: 3, image: "images/sy.jpg", question: "Quel est le nom du personnage qu'il incarne dans Jurassic World ?" },
+      { name: "Stromae", points: 3, image: "images/stromae.jpg", question: "Quel est son nom de famille ?" },
+      { name: "Jean Jacques Goldman", points: 3, image: "images/jeanjacques.jpg", question: "Avec quel groupe Jean-Jacques Goldman se fait-il connaître du grand public dans les années 1970 ?" },
+      { name: "Johnny Hallyday", points: 3, image: "images/halliday.jpg", question: "Combien de fois s'est-il marié ?", answer: "5" },
+      { name: "Alain Chabat", points: 3, image: "images/chabat.jpg", question: "Quel est le nom du journal fictif où il travaille dans La Cité de la peur ?", answer: "Cannes Matin" },
+      { name: "Bourvil", points: 3, image: "images/bourvil.jpg", question: "Quel métier exerce-t-il avant d'être artiste ?", answer: "Boulanger" },
+      { name: "Ayrton Senna", points: 3, image: "images/senna.jpg", question: "Quel pilote perd la vie lors des qualifications du Grand Prix de Saint-Marin 1994, le même week-end où Ayrton Senna trouve la mort en course ?", answer: "Roland Ratzenberger" },
       // Pour ajouter une vraie photo : "image": "images/nom-fichier.jpg"
       // (place le fichier dans le dossier images/ à côté d'index.html)
     ]
