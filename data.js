@@ -401,7 +401,7 @@ const QUIZ_DATA = {
       { name: "Albert Einstein", points: 1, image: "images/einstein.jpg", question: "Quel prix nobel a-t-il remporté en 1921 ?", answer: "Prix Nobel de physique" },
  
       // --- 2 points (moyennes) ---
-      { name: "Mylène Farmer", points: 2, image: "images/farmer.jpg", question: "De quel pays est-elle originaire ?", answer: "Canada" },
+      { name: "Mylène Farmer", points: 2, image: "images/mylene.jpg", question: "De quel pays est-elle originaire ?", answer: "Canada" },
       { name: "Marion Cotillard", points: 2, image: "images/cotillard.jpg", question: "Pour quel rôle remporte-t-elle l'Oscar de la meilleure actrice ?", answer: "La Môme" },
       { name: "Tony Parker", points: 2, image: "images/parker.jpg", question: "Quel meneur légendaire était son entraîneur chez les Spurs ?", answer: "Gregg Popovich" },
       { name: "Teddy Riner", points: 2, image: "images/riner.jpg", question: "Combien de titres olympiques individuels possède-t-il ?", answer: "3" },
@@ -411,7 +411,6 @@ const QUIZ_DATA = {
  
       // --- 3 points (difficiles) ---
       { name: "Omar Sy", points: 3, image: "images/sy.jpg", question: "Quel est le nom du personnage qu'il incarne dans Jurassic World ?" },
-      { name: "Stromae", points: 3, image: "images/stromae.jpg", question: "Quel est son nom de famille ?" },
       { name: "Jean Jacques Goldman", points: 3, image: "images/jeanjacques.jpg", question: "Avec quel groupe Jean-Jacques Goldman se fait-il connaître du grand public dans les années 1970 ?" },
       { name: "Johnny Hallyday", points: 3, image: "images/halliday.jpg", question: "Combien de fois s'est-il marié ?", answer: "5" },
       { name: "Alain Chabat", points: 3, image: "images/chabat.jpg", question: "Quel est le nom du journal fictif où il travaille dans La Cité de la peur ?", answer: "Cannes Matin" },
