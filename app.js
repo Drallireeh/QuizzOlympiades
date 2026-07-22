@@ -492,7 +492,7 @@ function openR3Reveal(i) {
         p.image ? `<img src="${p.image}" alt="">` : initials(p.name)
       }</div>
       <div class="reveal-question" id="r3-reveal-question">${p.question || ""}</div>
-      <div class="reveal-name hidden-text" id="r3-reveal-name">${p.name}</div>
+      <div class="reveal-name hidden-text" id="r3-reveal-name">${p.answer}</div>
       <div class="timer-ring hidden" id="r3-timer">
         <svg viewBox="0 0 120 120">
           <circle class="track" cx="60" cy="60" r="52"></circle>
