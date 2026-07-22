@@ -397,7 +397,7 @@ const QUIZ_DATA = {
       { name: "Kylian Mbappé", points: 1, image: "images/mbappe.jpg", question: "Dans quel club français s'est-il révélé ?", answer: "AS Monaco" },
       { name: "Louis de Funès", points: 1, image: "images/funes.jpg", question: "Quel gendarme célèbre incarnait-il ?", answer: "Cruchot" },
       { name: "Jean Dujardin", points: 1, image: "images/dujardin.jpg", question: "Pour quel film reçoit-il l'Oscar du meilleur acteur en 2012 ?", answer: "The Artist" },
-      { name: "Antoine Griezmann", points: 1, image: "images/griezmann.jpg", question: "Quel est son surnom courant ?", answer: "Grizou" },
+      { name: "Sébastien Loeb", points: 1, image: "images/loeb.jpg", question: "Avec quel constructeur remporte-t-il ses neuf titres ?", answer: "Citroën" },
       { name: "Albert Einstein", points: 1, image: "images/einstein.jpg", question: "Quel prix nobel a-t-il remporté en 1921 ?", answer: "Prix Nobel de physique" },
  
       // --- 2 points (moyennes) ---
